@@ -1,11 +1,20 @@
 
+/* BODY GENERAL */
+
 /* STYLE NAVBAR */
+a{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
 
 #nav-esp{
     padding: 5px 100px 5px 45px;
-    background-color: #87A922;
+    background-image: linear-gradient(to right, #87A922, #4CAF50);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     
 }
+
 
 button{
     width: 130px;
@@ -14,10 +23,6 @@ button{
     border-radius: 50%;
 }
 /* STYLE IMG OF CAROUSEL */
-section{
-    background-color: blue;
-    padding: 50px;
-}
 section img{
-    height: 500px;
+    height: 450px;
 }
