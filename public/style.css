@@ -1,0 +1,23 @@
+
+/* STYLE NAVBAR */
+
+#nav-esp{
+    padding: 5px 100px 5px 45px;
+    background-color: #87A922;
+    
+}
+
+button{
+    width: 130px;
+} 
+.ImgRadious{
+    border-radius: 50%;
+}
+/* STYLE IMG OF CAROUSEL */
+section{
+    background-color: blue;
+    padding: 50px;
+}
+section img{
+    height: 500px;
+}
