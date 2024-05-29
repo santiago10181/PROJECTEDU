@@ -22,7 +22,9 @@ a{
         background-image: linear-gradient(to right, #87A922, #4CAF50);
     }
 }
-
+svg .bi{
+    background-color: black;
+}
 button{
     width: 130px;
 } 
@@ -31,17 +33,17 @@ button{
 }
 /* STYLE IMG OF CAROUSEL */
 #Info-news{
-    background-color: #C5E1A5;
+    
     position: relative;
     overflow: hidden;
-    padding: 20px;
+    padding-top: 20px;
+
 
 }
 
 .carousel-inner img{
     position: absoulute;
     width: 90%;
-  
     max-height: 400px; /* Puedes ajustar esta altura según tus necesidades */
      /* Recorta la imagen para llenar el contenedor */
 }
