@@ -1,0 +1,34 @@
+<div id="calendar container" style="background-color: brown;">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col-3">
+                <table class="table">
+                    <thead>
+                        <% meses.forEach(mes => { %>
+                            <tr>
+                                <th scope="row"><%= mes %></th>
+                            </tr>
+                        <% }) %>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-9">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <% diasSem.forEach(diaS => { %>
+                            <td scope="col"><%= diaS %></td>
+                        <% }) %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
