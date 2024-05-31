@@ -47,3 +47,30 @@ button{
     max-height: 400px; /* Puedes ajustar esta altura según tus necesidades */
      /* Recorta la imagen para llenar el contenedor */
 }
+/* 
+CALENDARIO DE EVENTOS */
+
+.fc .fc-button-primary:disabled, .fc .fc-button-primary{
+    background-color: #87A922;
+    
+}
+
+:root {
+    --fc-border-color: rgb(7, 87, 34);
+    --fc-daygrid-event-dot-width: 5px;
+    --fc-border-solid: 50px;
+    --fc-col-header-cell-cushion: 3px
+}
+.fc-daygrid-day-number,.fc-col-header-cell-cushion{
+    text-decoration: none; /* Quita la línea subrayada */
+    color: green; /* Hereda el color del texto */
+    cursor: auto;
+}
+.fc{
+
+    margin: 10px;
+    padding: 15px;
+    background-color: #eef7d5;
+    border-color: #165f0c;
+    border: 1px solid;
+}
