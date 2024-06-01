@@ -1,7 +1,7 @@
 
 /* BODY GENERAL */
-#api-what,#search-nav {
-    background-color: #E6FF94; color: #0A6847;
+#api-what,#search-nav{
+    background-color: #E6FF94; color: hsl(159, 82%, 22%);
   }
 /* STYLE NAVBAR */
 
@@ -11,13 +11,10 @@ a{
     font-style: normal;
 }
 
-#nav-esp{
+#nav-esp, #footer{
     padding: 0.2rem 6.25rem 0.2rem 6.25rem;
     background-image: linear-gradient(to right, #87A922, #4CAF50);
-
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-
 }
 @media only screen and (max-width: 990px) {
     #navbarSupportedContent {
@@ -30,7 +27,7 @@ svg .bi{
 button{
     width: 130px;
 } 
-.ImgRadious{
+.ImgRadious, #imgfoot {
     border-radius: 50%;
 }
 /* STYLE IMG OF CAROUSEL */
@@ -39,7 +36,6 @@ button{
     position: relative;
     overflow: hidden;
     padding-top: 20px;
-
 
 }
 
@@ -87,10 +83,23 @@ CALENDARIO DE EVENTOS */
     height: 23px;
   }
 #api-what{
-    padding: auto 15px auto 15px;
     margin-top: 35px;
-    
 }
-#api-whaht:hover{
-    background-color: #ff0e0ead;
+/* ////////////FOOTER/////////////////// */
+
+#footer{
+    padding: 6rem;
+    color: white;
 }
+#imgfoot{
+    height: 8rem;
+}
+
+#footer div{
+    margin-top: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+ h6 i{
+    margin-left: 1rem;
+
+ }
