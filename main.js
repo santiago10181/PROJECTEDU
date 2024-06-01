@@ -17,26 +17,13 @@ app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
     
-    const date = new Date()
-    // establece el año
-    const año = date.getFullYear()
-    // estable el mes
-    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];  
-    const mesAct = meses[date.getMonth()]
-    // obtener dia
-    const diasSem = ["Dom", "Lun", "Mar", "Mié","Jue","Vie","Sáb"];
-    const diaAct = diasSem[date.getDay()]
-    res.render('index',{meses:meses,diasSem:diasSem})
-
+    res.render('index')
     
 })
 
-// idclient = 6916670296-qse3pc6trqav3bi7vl34tb4il5vgau4d.apps.googleusercontent.com
-
-
-
-
-
+app.get("/nosotros",(req,res)=>{
+    res.render('nosotros')
+})
 
 
 
@@ -45,3 +32,7 @@ app.get('/',(req,res)=>{
 app.listen(3000, () => {
     console.log('Express server initialized');
 });
+
+/* <p> Nosotros, 1 pag, todo</p>
+<p>Programas, pag principal con todos programs => cada uan se dirige a su pag info</p>
+<p>formulario eysa</p> */
