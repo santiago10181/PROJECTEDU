@@ -4,8 +4,7 @@ import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 
-import fs from "fs"
-import {JSDOM} from "jsdom"
+
 // inicializacion de express
 const app = express();
 // avtivacion de middleware
@@ -25,6 +24,9 @@ app.get("/nosotros",(req,res)=>{
     res.render('nosotros')
 })
 
+app.get("/programas",(req,res)=>{
+    res.render('programas')
+})
 
 
 // Puerto a activar 
