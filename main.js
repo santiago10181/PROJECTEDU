@@ -19,6 +19,13 @@ app.get('/',(req,res)=>{
     res.render('index')
     
 })
+app.post('/',(req,res)=>{
+    console.log(req.body);
+    let phoneNumber = '573117674115'
+    let message = 'Hola, este es un mensaje predefinido desde mi sitio web.';
+    let whatsappURL = `https://api.whatsapp.com/send/?phone=573117674115&text&type=phone_number&app_absent=0`;
+    res.render('index',{whatsappURL:whatsappURL})
+})
 
 app.get("/nosotros",(req,res)=>{
     res.render('nosotros')
@@ -74,7 +81,4 @@ app.listen(3000, () => {
     console.log('Express server initialized');
 });
 
-/* <p> Nosotros, 1 pag, todo</p>
-<p>Programas, pag principal con todos programs => cada uan se dirige a su pag info</p>
-<p>formulario eysa</p> */
-// yexu ojrp qjcn ycjv
+

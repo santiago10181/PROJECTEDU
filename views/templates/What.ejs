@@ -1,13 +1,29 @@
 <div class="d-flex h-100 text-center text-bg container" id="whats-info">
-    
+  <% const phoneNumber = locals.phoneNumber %>
+  <% const mess = locals.message; %>
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <main class="px-3">
     <h1>Cover your page.</h1>
     <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    
-    <button id="api-what" type="button" class="btn btn-lg btn-success text-nowrap"><i class="fa-brands fa-whatsapp fa-lg"></i>   Success</button>
+    <form action="/" method="post">
+      <button id="api-what" name="btn-wa" type="submit" value="ok" class="btn btn-lg btn-success text-nowrap"
+      onclick="openWhatsApp()"
+      ><i class="fa-brands fa-whatsapp fa-lg"></i>   Success</button>
+    </form>
+
+    <!-- onclick="window.open(whatsappURL, '_blank')" -->
     
   </main>
 
 </div>
 </div>
+<script>
+  // Definir las variables phoneNumber y message
+
+
+  // Función para abrir la URL de WhatsApp
+  function openWhatsApp() {
+    const whatsappURL = "https://api.whatsapp.com/send/?phone=573117674115&text&type=phone_number&app_absent=0;"
+    window.open(whatsappURL, '_blank');
+  }
+</script>
