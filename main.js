@@ -27,7 +27,15 @@ app.get("/nosotros",(req,res)=>{
 app.get("/programas",(req,res)=>{
     res.render('programas')
 })
-
+app.get("/contact",(req,res)=>{
+    res.render('form_email')
+})
+app.post("/contact",(req,res)=>{
+    let email = req.body.email
+    let message = req.body.text
+    console.log(req.body);
+    res.render('form_email')
+})
 
 // Puerto a activar 
 
