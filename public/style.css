@@ -9,6 +9,7 @@ a{
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: normal;
+    
 }
 
 #nav-esp{
@@ -42,7 +43,26 @@ button{
     padding-top: 20px;
 
 }
+#imgBck{
+    
+    position: relative
+}
+#imgBck::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/Profes.jpeg');
+    background-size: cover;
+    opacity: 50%; /* Opacidad del fondo */
+}
 
+#imgBck img {
+    position: relative;
+    z-index: 1; /* Coloca la imagen sobre el fondo */
+}
 .carousel-inner img{
     position: absoulute;
     width: 90%;
@@ -52,11 +72,12 @@ button{
 /* 
 CALENDARIO DE EVENTOS */
 
-.fc .fc-button-primary:disabled, .fc .fc-button-primary{
+ .fc .fc-button-primary:disabled, .fc .fc-button-primary{
     background-color: #87A922;
     
 }
 
+  
 :root {
     --fc-border-color: rgb(7, 87, 34);
     --fc-daygrid-event-dot-width: 5px;
@@ -65,27 +86,38 @@ CALENDARIO DE EVENTOS */
 }
 .fc-daygrid-day-number,.fc-col-header-cell-cushion{
     text-decoration: none; /* Quita la línea subrayada */
-    color: green; /* Hereda el color del texto */
-    cursor: auto;
+     color: green; /* Hereda el color del texto */
+     cursor: auto;
+     
+} 
+a.fc-event{
+    color: #165f0c;
+    font-weight: 400;
 }
-.fc{
+.fc-daygrid-event{
+    white-space:inherit;
+    display: contents;
+}
+ .fc{
 
     margin: 10px;
     padding: 15px;
     background-color: #eef7d5;
     border-color: #165f0c;
     border: 1px solid;
-}
-
+}  
 /* *****************WHATSAPP INFO*************** */
 #whats-info{
-    margin-top: 50px;
-    background-color: #6d866ead;
-    padding: 70px;
+    margin-top: 3rem;
+    background-color: #EEEEEE;
+    padding: 4rem;
 }
-.btn img {
-    height: 23px;
-  }
+#whats-info p{
+    margin-top: 1rem;
+    font-weight: 200;
+    font-size: 1.9rem;
+}
+
 #api-what{
     margin-top: 35px;
 }

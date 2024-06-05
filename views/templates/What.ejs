@@ -1,14 +1,16 @@
-<div class="d-flex h-100 text-center text-bg container" id="whats-info">
-  <% const phoneNumber = locals.phoneNumber %>
-  <% const mess = locals.message; %>
+<div class="d-flex h-100 text-center text-bg container" id="whats-info" style="padding: 50px 100px 50px 100px;">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <main class="px-3">
-    <h1>Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <h1>Escribenos a Nuestro WhatsApp<h1>
+      <div class="container" >
+        <p class="lead">Nos encanta recibir a nuevos estudiantes, así que ven prepárate con nosotros y superar tus expectativas</p>
+      </div>
+    
     <form action="/" method="post">
       <button id="api-what" name="btn-wa" type="submit" value="ok" class="btn btn-lg btn-success text-nowrap"
-      onclick="openWhatsApp()"
-      ><i class="fa-brands fa-whatsapp fa-lg"></i>   Success</button>
+        onclick="openWhatsApp()" style="width: 150px;">
+     <i class="fa-brands fa-whatsapp fa-lg"></i> Escríbenos
+</button>
     </form>
 
     <!-- onclick="window.open(whatsappURL, '_blank')" -->

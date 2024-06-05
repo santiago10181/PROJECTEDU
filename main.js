@@ -20,11 +20,7 @@ app.get('/',(req,res)=>{
     
 })
 app.post('/',(req,res)=>{
-    console.log(req.body);
-    let phoneNumber = '573117674115'
-    let message = 'Hola, este es un mensaje predefinido desde mi sitio web.';
-    let whatsappURL = `https://api.whatsapp.com/send/?phone=573117674115&text&type=phone_number&app_absent=0`;
-    res.render('index',{whatsappURL:whatsappURL})
+    res.render('index')
 })
 
 app.get("/nosotros",(req,res)=>{
@@ -41,6 +37,10 @@ app.post("/contact",async (req,res)=>{
     // cuerpo del contenido
     let email = req.body.email
     let text = req.body.text
+    let nombre = req.body.nombre
+    let numero = req.body.numero
+    let asunto = req.body.asunto
+    console.log(req.body);
     // 
     let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -49,16 +49,16 @@ app.post("/contact",async (req,res)=>{
     secure: true,
     auth: {
     //El User admin de la web qu da permisos como remitente
-    user: '<correo de permisos>',
+    user: 'admisiones.eysa@gmail.com',
     //  aplicación generada desde la configuración de seguridad de la cuenta de Google, en contraseñas de aplicaaciones
-    pass: 'contraseña de aplicaciones'
+    pass: 'uugd hizj jfdz nsmw'
   }
 });
     
     let message = {
   from: email,
-  to: 'ingles.eysa@gmail.com',
-  subject: 'Asunto del correo electrónico',
+  to: 'admisiones.eysa@gmail.com',
+  subject: asunto + '-' + nombre + '-' + numero ,
   text: text,
   html: text
 };
@@ -82,3 +82,4 @@ app.listen(3000, () => {
 });
 
 
+// uugd hizj jfdz nsmw

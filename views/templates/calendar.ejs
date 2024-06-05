@@ -1,22 +1,33 @@
 <div id='calendar' class="container"  ></div>
 <script>
   var miEvento = {
-    title: 'Mi evento importante para render',
-    start: '2024-06-01T10:00:00', // Fecha y hora de inicio en formato ISO
-    end: '2024-06-01T12:00:00' // Fecha y hora de fin en formato ISO
+    title: 'Simulacro:',
+    start: '2024-06-08T10:00:00', // Fecha y hora de inicio en formato ISO
+    end: '2024-06-08T12:00:00', // Fecha y hora de fin en formato ISO
+    extendedProps: {
+    content: 'Presentacion de 1° simulacro' // Contenido adicional del evento
+  }
 };
 
 
-    document.addEventListener('DOMContentLoaded', async function () {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
+  document.addEventListener('DOMContentLoaded', async function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
       height: 500,
-      locale: 'es'
-      });
-      await calendar.updateSize();
-      await calendar.addEvent(miEvento);
-      await  calendar.render();
+      locale: 'es',
+      eventMaxWidth: 300,
+      eventContent: function(arg) {
+        return {
+          html: '<strong>' + arg.event.title + '</strong><br>' + arg.event.extendedProps.content
+        };
+      }
     });
+
+    await calendar.updateSize();
+    await calendar.addEvent(miEvento);
+    await calendar.render();
+  });
+
 
   </script>
