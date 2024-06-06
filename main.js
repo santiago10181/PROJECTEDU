@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // inicializacion de express
+const port = process.env.PORT || 3000;
 const app = express();
 // avtivacion de middleware
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -79,9 +80,6 @@ transporter.sendMail(message, function(error, info){
 
 // Puerto a activar 
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Express server initialized');
 });
-
-
-// uugd hizj jfdz nsmw
