@@ -13,8 +13,9 @@ const app = express();
 // avtivacion de middleware
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(bodyParser.urlencoded({extended: true}))
+app.set("views", __dirname + "/views");
 app.set('view engine', 'ejs');
-app.use(express.static('public'))
+app.use(express.static("public"));
 //Pagina de inicio, creamos las fechas y la info a ingresar en el calendar
 
 app.get('/',(req,res)=>{
