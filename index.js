@@ -52,15 +52,15 @@ app.post("/contact",async (req,res)=>{
     secure: true,
     auth: {
     //El User admin de la web qu da permisos como remitente
-    user: process.env.EMAILTOSEND,
+    user: 'admisiones.eysa@gmail.com',
     //  aplicación generada desde la configuración de seguridad de la cuenta de Google, en contraseñas de aplicaaciones
-    pass: process.env.PASSWORD_APPWEB
+    pass: 'uugd hizj jfdz nsmw'
   }
 });
     
     let message = {
   from: email,
-  to: process.env.EMAILTOSEND,
+  to: 'admisiones.eysa@gmail.com',
   subject: asunto + '-' + nombre + '-' + numero ,
   text: text,
   html: text
