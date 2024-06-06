@@ -53,7 +53,7 @@ app.post("/contact",async (req,res)=>{
     secure: true,
     auth: {
     //El User admin de la web qu da permisos como remitente
-    user: process.env.EMAILTOSEND,
+    user: 'admisiones.eysa@gmail.com',
     //  aplicación generada desde la configuración de seguridad de la cuenta de Google, en contraseñas de aplicaaciones
     pass: process.env.PASSWORD_APPWEB
   }
