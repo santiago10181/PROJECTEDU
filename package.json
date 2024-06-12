@@ -2,10 +2,10 @@
   "name": "eysa",
   "version": "1.0.0",
   "description": "app para eysa, como un aplicación de aprendizaje",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node main.js"
+    "start": "node index.js"
   },
   "author": "Santiago Mariño",
   "license": "ISC",
