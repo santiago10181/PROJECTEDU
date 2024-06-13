@@ -73,7 +73,11 @@ transporter.sendMail(message, function(error, info){
   res.render('form_email')
 });
 
+app.use(express.static(path.join(__dirname, 'dist')));
 
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 })
 
