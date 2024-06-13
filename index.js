@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
 import { log } from "console";
+import path from "path";
 import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
@@ -16,6 +17,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.set("views", __dirname + "/Staticapp/views");
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/Staticapp/public"));
+
+
 
 //Pagina de inicio, creamos las fechas y la info a ingresar en el calendar
 
@@ -73,11 +76,7 @@ transporter.sendMail(message, function(error, info){
   res.render('form_email')
 });
 
-app.use(express.static(path.join(__dirname, 'dist')));
 
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
 
 })
 
