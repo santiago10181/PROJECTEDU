@@ -30,12 +30,12 @@ svg .bi{
     background-color: black;
 }
 button{
-    width: 130px;
+    width: 160px;
 } 
 .ImgRadious, #imgfoot {
     border-radius: 50%;
 }
-/* STYLE IMG OF CAROUSEL */
+/* STYLE IMG OF CAROUSELs */
 #Info-news{
     
     position: relative;
@@ -43,7 +43,7 @@ button{
     padding-top: 20px;
 
 }
-#imgBck{
+#imgBck,#imgbck2{
     
     position: relative
 }
@@ -58,8 +58,22 @@ button{
     background-size: cover;
     opacity: 50%; /* Opacidad del fondo */
 }
-
+#imgbck2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/infoNew.jpeg');
+    background-size: cover;
+    opacity: 50%; /* Opacidad del fondo */
+}
 #imgBck img {
+    position: relative;
+    z-index: 1; /* Coloca la imagen sobre el fondo */
+}
+#imgbck2 img {
     position: relative;
     z-index: 1; /* Coloca la imagen sobre el fondo */
 }
