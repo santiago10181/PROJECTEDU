@@ -20,7 +20,7 @@ app.use(express.static(__dirname + "/Staticapp/public"));
 
 
 
-//Pagina de inicio, creamos las fechas y la info a ingresar en el calendar
+//Pagina de inicio, creamos las fechas y la info a ingresar en el calendar//
 
 app.get('/',(req,res)=>{
     
