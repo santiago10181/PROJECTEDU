@@ -2,13 +2,28 @@
 <script>
   var miEvento = {
     title: 'Simulacro:',
-    start: '2024-06-08T10:00:00', // Fecha y hora de inicio en formato ISO
-    end: '2024-06-08T12:00:00', // Fecha y hora de fin en formato ISO
+    start: '2024-06-15T10:00:00', // Fecha y hora de inicio en formato ISO
+    end: '2024-06-15T12:00:00', // Fecha y hora de fin en formato ISO
     extendedProps: {
     content: 'Presentacion de 1° simulacro' // Contenido adicional del evento
   }
 };
-
+var Evento2 = {
+  title: 'Reportes Académicos:',
+  start: '2024-06-30T10:00:00', // Fecha y hora de inicio en formato ISO
+  end: '2024-6-30T12:00:00', // Fecha y hora de fin en formato ISO
+  extendedProps: {
+  content: 'Entrega de reportes académicos' // Contenido adicional del evento
+}
+};
+var Evento3 = {
+  title: 'Talleres Vacacionales:',
+  start: '2024-06-17T10:00:00', // Fecha y hora de inicio en formato ISO
+  end: '2024-06-17T12:00:00', // Fecha y hora de fin en formato ISO
+  extendedProps: {
+  content: 'Inicio de talleres vacacionales' // Contenido adicional del evento
+}
+};
 
   document.addEventListener('DOMContentLoaded', async function () {
     var calendarEl = document.getElementById('calendar');
@@ -26,8 +41,35 @@
 
     await calendar.updateSize();
     await calendar.addEvent(miEvento);
+    await calendar.addEvent(Evento2);
+    await calendar.addEvent(Evento3);
     await calendar.render();
   });
 
 
   </script>
+
+<!-- var miEvento = {
+  title: 'Simulacro:',
+  start: '2024-15-08T10:00:00', // Fecha y hora de inicio en formato ISO
+  end: '2024-15-08T12:00:00', // Fecha y hora de fin en formato ISO
+  extendedProps: {
+  content: 'Presentacion de 1° simulacro' // Contenido adicional del evento
+}
+};
+var Evento2 = {
+  title: 'Reportes Académicos:',
+  start: '2024-30-08T10:00:00', // Fecha y hora de inicio en formato ISO
+  end: '2024-30-08T12:00:00', // Fecha y hora de fin en formato ISO
+  extendedProps: {
+  content: 'Entrega de reportes académicos' // Contenido adicional del evento
+}
+};
+var Evento3 = {
+  title: 'Vacaciones:',
+  start: '2024-17-08T10:00:00', // Fecha y hora de inicio en formato ISO
+  end: '2024-17-08T12:00:00', // Fecha y hora de fin en formato ISO
+  extendedProps: {
+  content: 'Inicio de vacaciones Recreativas' // Contenido adicional del evento
+}
+}; -->
