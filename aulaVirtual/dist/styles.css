@@ -11,6 +11,10 @@ body::before {
     z-index: -1;
   }
   
+form{
+  margin-top: 10%;
+}
+
   body, html {
     height: 100%;
     margin: 0;
@@ -24,6 +28,7 @@ body::before {
   
   img {
     border-radius: 50%;
+    height: 5rem;
   }
   
   .form-signin {
@@ -31,4 +36,3 @@ body::before {
     padding: 1rem;
     position: relative; /* Agregado para asegurar que el form no sea afectado por la opacidad */
   }
-  
