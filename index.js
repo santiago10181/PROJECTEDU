@@ -55,13 +55,13 @@ app.post("/contact",async (req,res)=>{
     //El User admin de la web qu da permisos como remitente
     user: 'admisiones.eysa@gmail.com',
     //  aplicación generada desde la configuración de seguridad de la cuenta de Google, en contraseñas de aplicaaciones
-    pass: 'uugd hizj jfdz nsmw'
+    pass: process.env.PASSWORD_APPWEB
   }
 });
     
     let message = {
   from: email,
-  to: 'santiago.marino.diaz@gmail.com',
+  to: process.env.EMAILTOSEND,
   subject: asunto + '-' + nombre + '-' + numero ,
   text: text,
   html: text
