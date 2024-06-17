@@ -29,9 +29,7 @@ a{
 svg .bi{
     background-color: black;
 }
-button{
-    width: 160px;
-} 
+
 .ImgRadious, #imgfoot {
     border-radius: 50%;
 }
