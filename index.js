@@ -28,6 +28,7 @@ app.get('/',(req,res)=>{
     res.render('index')
     
 })
+app.post('/',(req,res)=>{res.render('index')})
 
 app.get("/nosotros",(req,res)=>{
     res.render('nosotros')

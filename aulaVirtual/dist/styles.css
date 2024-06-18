@@ -7,12 +7,12 @@ body::before {
     height: 100%;
     background: url('images/bg-login.jpg') no-repeat center center;
     background-size: cover;
-    opacity: 50%; /* Ajusta la opacidad según necesites */
+    opacity: 80%; /* Ajusta la opacidad según necesites */
     z-index: -1;
   }
   
 form{
-  margin-top: 10%;
+  margin-top: 2%;
 }
 
   body, html {
