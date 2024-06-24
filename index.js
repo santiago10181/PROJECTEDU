@@ -5,8 +5,8 @@ import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 // inicializacion de express
 const port = process.env.PORT || 3000;
@@ -14,11 +14,11 @@ const app = express();
 // avtivacion de middleware
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(bodyParser.urlencoded({extended: true}))
-app.set("views", __dirname + "/views");
+app.set("views", __dirname + "/Staticapp/views");
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/Staticapp/public"));
 
-app.use(express.static(path.join(__dirname, 'aulaVirtual/dist')));
+app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
 
 
 //Pagina de inicio, creamos las fechas y la info a ingresar en el calendar//
@@ -28,7 +28,6 @@ app.get('/',(req,res)=>{
     res.render('index')
     
 })
-app.post('/',(req,res)=>{res.render('index')})
 
 app.get("/nosotros",(req,res)=>{
     res.render('nosotros')
@@ -58,13 +57,13 @@ app.post("/contact",async (req,res)=>{
     //El User admin de la web qu da permisos como remitente
     user: 'admisiones.eysa@gmail.com',
     //  aplicación generada desde la configuración de seguridad de la cuenta de Google, en contraseñas de aplicaaciones
-    pass: process.env.PASSWORD_APPWEB
+    pass: "process.env.PASSWORD_APPWEB"
   }
 });
     
     let message = {
   from: email,
-  to: process.env.EMAILTOSEND,
+  to: "process.env.EMAILTOSEND",
   subject: asunto + '-' + nombre + '-' + numero ,
   text: text,
   html: text
@@ -82,10 +81,8 @@ transporter.sendMail(message, function(error, info){
 //////LOGIN/////
 
 app.get('/login',(req,res)=>{
-  res.sendFile(path.join(__dirname, 'aulaVirtual/dist', 'login.html'));
+  res.sendFile(path.join(__dirname, '/aulaVirtual/dist', 'login.html'));
 })
-
-
 
 // Puerto a activar 
 
