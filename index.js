@@ -82,7 +82,7 @@ transporter.sendMail(message, function(error, info){
 app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
 
 app.get('/login',(req,res)=>{
-  res.sendFile(path.join(__dirname, '/aulaVirtual/dist', 'login.html'));
+  res.sendFile(path.join(__dirname, '/aulaVirtual/dist', 'index.html'));
 })
 
 // Puerto a activar 
