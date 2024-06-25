@@ -72,7 +72,7 @@ app.post("/contact", async (req, res) => {
 
 // Servir el archivo index.html
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'aulaVirtual/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'aulaVirtual/dist', 'login.html'));
 });
 
 // Puerto a activar
