@@ -78,6 +78,13 @@ transporter.sendMail(message, function(error, info){
 });
 
 })
+
+///////REGISTER ALUMNO MATRICULA////////////////////
+app.get("/matricula",(req,res)=>{
+  
+  res.render("matricula")
+
+})
 //////LOGIN/////
 app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
 
