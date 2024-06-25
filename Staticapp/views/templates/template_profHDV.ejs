@@ -1,0 +1,136 @@
+<div class="container">
+    <main>
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4 rounded-circle" src="images/eysaLogo.jpg" alt="" width="80" height="75"   >
+            <h2>Checkout form</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        </div>
+            <!-- REGISTRO PARA LOS NOMBRES Y APELLIDOS -->
+        <section id="info-est-prof" style="margin-top:1.7rem ;">
+            
+            <div class="text-success">
+              <h4>Información General </h4>
+              <hr>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                </div>
+                <div class="col-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                </div>
+            </div>
+            <!-- REGISTRO PARA LOS ID -->
+            <div class="row">
+                <div class="col-4">
+                    <label for="firstName" class="form-label">Sexo</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label for="firstName" class="form-label">Tipo de documento</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccione</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                <label for="firstName" class="form-label">Numero de Identidicación </label>
+                  <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
+                </div>
+            </div>
+              <!-- CREACION DE INFO GENERAL -->
+            <div class="row">
+                <div class="col-4">
+                    <label for="firstName" class="form-label">Profesión</label>
+                    <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
+                </div>
+                <div class="col-4">
+                    <label for="firstName" class="form-label">Area desempeñada</label>
+                    <input type="text" class="form-control" placeholder="text..." aria-label="Last name">
+                </div>
+                <div class="col-4">
+                    <label for="firstName" class="form-label">Telefono </label>
+                  <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
+                </div>
+            </div>
+            <!-- CREACION DE CORREO Y ADDRESS -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="firstName" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                </div>
+                <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Dirección</label>
+                    <input type="email" class="form-control" id="lastName" placeholder="" value="" required="">
+                </div>
+            </div>
+        </section>
+        <section id="perfil-prof">
+            <div class="text-success">
+                <h4>Perfil  </h4>
+                <hr>
+            </div>
+            <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">Años de experiencia</label>
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+              </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Perfil profesional o descripción </label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div> 
+        </section>    
+        <section id="experiencia-prof">
+            <div class="text-success">
+                <h4>Experiencia</h4>
+                <hr>
+            </div>
+
+            <div id="form-exp" class="row">
+                <div id="creacion-form">
+                    <div class="col-4">
+                        <label for="firstName" class="form-label">Intitucion / Empresa</label>
+                        <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
+                    </div>
+                    <div class="col-4">
+                        <label for="firstName" class="form-label">Cargo</label>
+                        <input type="text" class="form-control" placeholder="text..." aria-label="Last name">
+                    </div>
+                    <div class="col-4">
+                        <label for="firstName" class="form-label">Tiempo laborado</label>
+                        <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
+                    </div>
+                    <div class="input-group col mt-4">
+                        <input type="file" class="form-control" id="inputGroupFile02">
+                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                    </div>  
+                    <div class="text-success">
+                        <hr>
+                    </div>      
+                </div>
+                
+            </div>
+            <div  class="mt-4">
+                <button id="add-experience" type="button" class="btn btn-outline-success">Añadir experiencia</button>
+            </div>
+        </section>
+        
+    </main>
+    <script>
+        $('#add-experience').click(() => {
+            const contenedor = $('#form-exp');
+            const formato = $('#creacion-form').clone();
+            formato.addClass('mt-3')
+            formato.removeAttr('id');  // Eliminar el id para evitar duplicados
+            contenedor.append(formato);
+        });
+    </script>
+</div>

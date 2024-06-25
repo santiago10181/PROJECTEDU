@@ -85,6 +85,13 @@ app.get("/matricula",(req,res)=>{
   res.render("matricula")
 
 })
+
+///////REGISTER PROFE HDV////////////////////
+app.get("/HDV",(req,res)=>{
+  
+  res.render("profHDV")
+
+})
 //////LOGIN/////
 app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
 
