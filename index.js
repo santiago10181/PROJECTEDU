@@ -18,7 +18,7 @@ app.set("views", __dirname + "/Staticapp/views");
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/Staticapp/public"));
 
-app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
+
 
 
 //Pagina de inicio, creamos las fechas y la info a ingresar en el calendar//
@@ -79,9 +79,10 @@ transporter.sendMail(message, function(error, info){
 
 })
 //////LOGIN/////
+app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
 
 app.get('/login',(req,res)=>{
-  res.sendFile(path.join(__dirname, '/aulaVirtual/dist', 'login.html'));
+  res.sendFile(path.join(__dirname, '/aulaVirtual/dist', 'index.html'));
 })
 
 // Puerto a activar 
