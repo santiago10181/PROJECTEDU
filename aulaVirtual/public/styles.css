@@ -15,7 +15,9 @@ body::before {
     height: 100%;
     margin: 0;
   }
-  
+  form{
+    margin-top: 12%;
+  }
   /* Asegúrate de que el contenido del body tenga un z-index mayor que el pseudoelemento */
   #root {
     position: relative;
