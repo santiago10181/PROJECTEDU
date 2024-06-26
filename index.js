@@ -12,6 +12,7 @@ import nodemailer from "nodemailer"
 const port = process.env.PORT || 3000;
 const app = express();
 // avtivacion de middleware
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(bodyParser.urlencoded({extended: true}))
 app.set("views", __dirname + "/Staticapp/views");

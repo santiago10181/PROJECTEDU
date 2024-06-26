@@ -1,3 +1,9 @@
+<style>
+     #info-est div.row{
+    margin-top: 1rem;
+ }
+</style>
+
 <div class="container">
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4 rounded-circle" src="images/eysaLogo.jpg" alt="" width="80" height="75"   >
@@ -7,7 +13,7 @@
 
     <!-- REGISTRO PARA LOS NOMBRES Y APELLIDOS -->
      <form action="/matricula" method="post" name="formulario_matricula">
-        <section id="info-est" style="margin-top:1.7rem ;">
+        <section id="info-est" class="mt-1">
             <div class="text-success">
                 <h4>Información General </h4>
                 <hr>
@@ -83,7 +89,7 @@
 
         <!-- REGISTRO DE PROGRAMA A APLICAR -->
 
-        <section id="type-program">
+        <section id="type-program" class="mt-5">
             <div class="col-8">
                 <label for="firstName" class="form-label">Programa al cual quiere inscribirse </label>
                 <select class="form-select" aria-label="Default select example"  name="programa_insc" required>
@@ -97,7 +103,7 @@
 
                 <!-- REGISTRO DE ULTIMOS ESTUDIOS -->
 
-        <section id="recent-est">
+        <section id="recent-est" class="mt-5">
             <div class="text-success">
                 <h4>Institución de Procedencia </h4>
                 <hr>
@@ -121,13 +127,13 @@
 
         <!-- REGISTRO DE ACUDIENTES (MENORES DE EDAD *) -->
 
-        <section id="acudientes">
+        <section id="acudientes" class="mt-5">
             <div class="text-success">
                 <h4>INFORMACION FAMILIAR DEL ESTUDIANTE</h4>
                 <hr>
             </div>
             <div class="row g-3">  
-                <h5>MADRE</h5>          
+                <h5 class="mt-2">MADRE</h5>          
                 <div class="col-sm-8">
                     <label for="firstName" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="firstName" placeholder="" name="fname_madre" required="">
@@ -206,12 +212,12 @@
 
         <!-- AUTORIZACIÓN POLITICA DE DATOS -->
 
-        <section id="consent-data-alumn">
+        <section id="consent-data-alumn" class="mt-5">
             <div class="text-success">
                 <h4>AUTORIZACIÓN POLITICA DE TRATAMIENTO DE DATOS PERSONALES</h4>
                 <hr>
             </div>
-            <p><small>
+            <p style="text-align: justify;"><small>
                 En cumplimiento con la Ley Estatutaria 1581 de 2012 de protección de datos y sus normas concordantes,
                 autorizo expresamente que los datos personales y biométricos (huella dactilar) consignados en el presente 
                 formulario sean incorporados en una base de datos responsabilidad de COOPERATIVA DE TRABAJADORES DEL GRUPO 
@@ -232,6 +238,6 @@
                 o mediante correo ordinario remitido a la Carrera 15ª No. 120 – 74 en Bogotá.
             </small></p>
         </section>
-        <button class="w-100 btn btn-success btn-lg" type="submit" style="margin-bottom: 3.5rem;">Continue to checkout</button>
+        <button class="w-100 btn btn-success btn-lg mt-3 mb-5" type="submit" >Continue to checkout</button>
     </form>
 </div>
