@@ -18,14 +18,6 @@ app.set("views", __dirname + "/Staticapp/views");
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/Staticapp/public"));
 
-app.use("/matricula", (req, res, next) => {
-  res.setHeader(
-    "Cache-Control",
-    "no-cache, no-store, max-age=0, must-revalidate"
-  );
-  next();
-});
-
 
 //Pagina de inicio, creamos las fechas y la info a ingresar en el calendar//
 
