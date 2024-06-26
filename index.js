@@ -85,11 +85,25 @@ app.get("/matricula",(req,res)=>{
   res.render("matricula")
 
 })
+app.post("/matricula",(req,res)=>{
+
+  let info = req.body
+  console.log(info);
+  res.send('OK')
+
+})
 
 ///////REGISTER PROFE HDV////////////////////
-app.get("/HDV",(req,res)=>{
+app.get("/hdv",(req,res)=>{
   
   res.render("profHDV")
+
+})
+app.post("/hdv",(req,res)=>{
+
+  let info = req.body
+  console.log(info);
+  res.send('OK')
 
 })
 //////LOGIN/////

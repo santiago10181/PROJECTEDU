@@ -1,31 +1,34 @@
 <div class="container">
-    <main>
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4 rounded-circle" src="images/eysaLogo.jpg" alt="" width="80" height="75"   >
-        <h2>Checkout form</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-      </div>
-            <!-- REGISTRO PARA LOS NOMBRES Y APELLIDOS -->
-          <section id="info-est" style="margin-top:1.7rem ;">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4 rounded-circle" src="images/eysaLogo.jpg" alt="" width="80" height="75"   >
+      <h2>Checkout form</h2>
+      <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+
+    <!-- REGISTRO PARA LOS NOMBRES Y APELLIDOS -->
+     <form action="/matricula" method="post" name="formulario_matricula">
+        <section id="info-est" style="margin-top:1.7rem ;">
             <div class="text-success">
-              <h4>Información General </h4>
-              <hr>
+                <h4>Información General </h4>
+                <hr>
             </div>
             <div class="row">
-              <div class="col-6">
-                <label for="firstName" class="form-label">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-              </div>
-              <div class="col-6">
-                <label for="lastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-              </div>
-            </div>
+                <div class="col-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="firstName" name="fname" required>
+                </div>
+                <div class="col-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="lastName" name="lname"  required>
+                </div>
+                </div>
+
             <!-- REGISTRO PARA LOS ID -->
+
             <div class="row">
                 <div class="col-4">
                     <label for="firstName" class="form-label">Sexo</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="sexo" required>
                         <option selected>Seleccione</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -34,7 +37,7 @@
                 </div>
                 <div class="col-4">
                     <label for="firstName" class="form-label">Tipo de documento</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" name="tipo_id" required>
                         <option selected>Seleccione</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -42,81 +45,83 @@
                     </select>
                 </div>
                 <div class="col-4">
-                <label for="firstName" class="form-label">Numero de Identidicación </label>
-                  <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
+                    <label for="firstName" class="form-label">Numero de Identidicación </label>
+                    <input type="number" class="form-control" placeholder="Numero" aria-label="Last name" name="num_id" required>
                 </div>
-              </div>
-              <!-- CREACION DE INFO GENERAL -->
-              <div class="row">
+            </div>
+
+            <!-- CREACION DE INFO GENERAL -->
+
+            <div class="row">
                 <div class="col-4">
                     <label for="firstName" class="form-label">Edad</label>
                     <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
                 </div>
                 <div class="col-4">
-                    <label for="firstName" class="form-label">Tipo de documento</label>
-                    <input type="date" class="form-control" placeholder="Numero" aria-label="Last name">
+                    <label for="firstName" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" placeholder="Numero" aria-label="Last name"  name="fech_nacimiento" required>
                 </div>
                 <div class="col-4">
-                <label for="firstName" class="form-label">Telefono </label>
-                  <input type="number" class="form-control" placeholder="Numero" aria-label="Last name">
-                </div>
-              </div>
-            <!-- CREACION DE CORREO Y ADDRESS -->
-            <div class="row">
-                <div class="col-sm-6">
-                  <label for="firstName" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                </div>
-                <div class="col-sm-6">
-                  <label for="lastName" class="form-label">Dirección</label>
-                  <input type="email" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <label for="firstName" class="form-label">Telefono </label>
+                    <input type="number" class="form-control" placeholder="Numero" aria-label="Last name"  name="tel" required>
                 </div>
             </div>
-          </section>
-</div>
-<div class="container">
-          
-            <!-- REGISTRO DE PROGRAMA A APLICAR -->
-            <section id="type-program">
+
+                <!-- CREACION DE CORREO Y ADDRESS -->
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="firstName" placeholder="" value="" required="">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    </div>
+                </div>
+        </section>
+
+        <!-- REGISTRO DE PROGRAMA A APLICAR -->
+
+        <section id="type-program">
             <div class="col-8">
-                <label for="firstName" class="form-label">Programa al cual quiere inscribirse   </label>
-                <select class="form-select" aria-label="Default select example">
+                <label for="firstName" class="form-label">Programa al cual quiere inscribirse </label>
+                <select class="form-select" aria-label="Default select example"  name="programa_insc" required>
                     <option selected>Seleccione</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
             </div>
-          </section>
+        </section>
 
-            <!-- REGISTRO DE ULTIMOS ESTUDIOS -->
-             <section id="recent-est">
+                <!-- REGISTRO DE ULTIMOS ESTUDIOS -->
+
+        <section id="recent-est">
             <div class="text-success">
                 <h4>Institución de Procedencia </h4>
                 <hr>
             </div>
             <div class="row g-3">            
                 <div class="col-sm-8">
-                  <label for="firstName" class="form-label">Nombre de la institución </label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                </div>
-    
+                    <label for="firstName" class="form-label">Nombre de la institución </label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" name="inst_pasada" required="">
+                </div>   
                 <div class="col-sm-6">
-                  <label for="lastName" class="form-label">Año</label>
-                  <input type="number" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <label for="lastName" class="form-label">Año</label>
+                    <input type="number" class="form-control" id="lastName" placeholder="" name="ult_ano_est" required="">
                 </div>
 
                 <div class="col-sm-6">
                     <label for="lastName" class="form-label">Grado / Semestre</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                  </div>
+                    <input type="text" class="form-control" id="lastName" placeholder="" name="ult_grad_sem" required="">
+                </div>
             </div> 
-          </section>
-</div>
-<div class="container">
-          
-            <!-- REGISTRO DE ACUDIENTES (MENORES DE EDAD *) -->
-          <section id="acudientes">
+        </section>
+
+        <!-- REGISTRO DE ACUDIENTES (MENORES DE EDAD *) -->
+
+        <section id="acudientes">
             <div class="text-success">
                 <h4>INFORMACION FAMILIAR DEL ESTUDIANTE</h4>
                 <hr>
@@ -124,108 +129,109 @@
             <div class="row g-3">  
                 <h5>MADRE</h5>          
                 <div class="col-sm-8">
-                  <label for="firstName" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                    <label for="firstName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" name="fname_madre" required="">
                 </div>
-    
+        
                 <div class="col-sm-6">
-                  <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
-                  <input type="number" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
+                    <input type="number" class="form-control" id="lastName" placeholder="" name="lname_madre" required="">
                 </div>
 
                 <div class="col-sm-6">
                     <label for="lastName" class="form-label">TELEFONO/ CELULAR </label>
-                    <input type="number" class="form-control" id="lastName" placeholder="" value="" required="">
-                  </div>
+                    <input type="number" class="form-control" id="lastName" placeholder="" name="tel_madre" required="">
+                    </div>
                 <div class="col-sm-6">
                     <label for="lastName" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <input type="text" class="form-control" id="lastName" placeholder="" name="dir_madre" required="">
                 </div>
-  
+    
                 <div class="col-sm-6">
-                      <label for="lastName" class="form-label">Ocupación</label>
-                      <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <label for="lastName" class="form-label">Ocupación</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" name="acup_madre" required="">
                 </div>
 
                 <h5>PADRE</h5>          
                 <div class="col-sm-8">
-                  <label for="firstName" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                    <label for="firstName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" name="fname_padre" required="">
                 </div>
-    
+        
                 <div class="col-sm-6">
-                  <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
-                  <input type="number" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
+                    <input type="number" class="form-control" id="lastName" placeholder="" name="lname_padre" required="">
                 </div>
 
                 <div class="col-sm-6">
                     <label for="lastName" class="form-label">TELEFONO/ CELULAR </label>
-                    <input type="number" class="form-control" id="lastName" placeholder="" value="" required="">
-                  </div>
+                    <input type="number" class="form-control" id="lastName" placeholder="" name="tel_padre" required="">
+                    </div>
                 <div class="col-sm-6">
                     <label for="lastName" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <input type="text" class="form-control" id="lastName" placeholder="" name="dir_padre" required="">
                 </div>
-  
+    
                 <div class="col-sm-6">
-                      <label for="lastName" class="form-label">Ocupación</label>
-                      <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <label for="lastName" class="form-label">Ocupación</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" name="ocup_padre" required="">
                 </div>
 
                 <h5>ACUDIENTE</h5>          
                 <div class="col-sm-8">
-                  <label for="firstName" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                    <label for="firstName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" name="fname_acudiente" required="">
                 </div>
-    
+        
                 <div class="col-sm-6">
-                  <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
-                  <input type="number" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
+                    <input type="number" class="form-control" id="lastName" placeholder="" name="lname_acudiente" required="">
                 </div>
 
                 <div class="col-sm-6">
                     <label for="lastName" class="form-label">TELEFONO/ CELULAR </label>
-                    <input type="number" class="form-control" id="lastName" placeholder="" value="" required="">
-                  </div>
+                    <input type="number" class="form-control" id="lastName" placeholder="" name="tel_acudiente" required="">
+                    </div>
                 <div class="col-sm-6">
                     <label for="lastName" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <input type="text" class="form-control" id="lastName" placeholder="" name="dir_acudiente" required="">
                 </div>
-  
+    
                 <div class="col-sm-6">
-                      <label for="lastName" class="form-label">Ocupación</label>
-                      <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <label for="lastName" class="form-label">Ocupación</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" name="ocup_acudiente" required="">
                 </div>
             </div> 
-          </section>
-          <section id="consent-data-alumn">
+        </section>
+
+        <!-- AUTORIZACIÓN POLITICA DE DATOS -->
+
+        <section id="consent-data-alumn">
             <div class="text-success">
                 <h4>AUTORIZACIÓN POLITICA DE TRATAMIENTO DE DATOS PERSONALES</h4>
                 <hr>
             </div>
-            <p><small>En cumplimiento con la Ley Estatutaria 1581 de 2012 de protección de datos y sus normas concordantes,
-             autorizo expresamente que los datos personales y biométricos (huella dactilar) consignados en el presente 
-             formulario sean incorporados en una base de datos responsabilidad de COOPERATIVA DE TRABAJADORES DEL GRUPO 
-             CORPORATIVO SCARE para que sean tratados con la finalidad de realizar marketing, gestión administrativa, 
-             gestión de estadísticas internas, fidelización de clientes, prospección comercial, publicidad propia, 
-             segmentación de mercados, gestión de cobros y pagos, y transmisión y/o transferencia de datos. De igual modo, 
-             en calidad de representante legal del(los) menor(es) y/o con el consentimiento de los beneficiarios registrados
-             en el presente formulario, autorizo que sus datos personales sean incorporados en una base de datos 
-             responsabilidad de COOPERATIVA DE TRABAJADORES DEL GRUPO CORPORATIVO SCARE con la finalidad de realizar 
-             gestión de estadísticas internas, procedimientos administrativos, remisión de información relacionada con 
-             el objeto social de la organización a los titulares, formación, gestión administrativa, registro de imágenes 
-             y de acceder a los beneficios que se generen debido a mi calidad de asociado(a) de COOPERATIVA DE TRABAJADORES 
-             DEL GRUPO CORPORATIVO SCARE . Es de carácter facultativo suministrar información que verse sobre datos sensibles, 
-             entendidos como aquellos que afectan la intimidad o sobre menores de edad. De la misma manera, declaro haber sido 
-             informado de que puedo ejercitar mis derechos de acceso, corrección, supresión, revocación o reclamo por infracción
-            de mis datos con un escrito dirigido a COOPERATIVA DE TRABAJADORES DEL GRUPO CORPORATIVO SCARE a través de la
-            dirección de correo electrónico gerente@corporativos.org.co indicando en el asunto el derecho que deseo ejercer,
-            o mediante correo ordinario remitido a la Carrera 15ª No. 120 – 74 en Bogotá.</small></p>
+            <p><small>
+                En cumplimiento con la Ley Estatutaria 1581 de 2012 de protección de datos y sus normas concordantes,
+                autorizo expresamente que los datos personales y biométricos (huella dactilar) consignados en el presente 
+                formulario sean incorporados en una base de datos responsabilidad de COOPERATIVA DE TRABAJADORES DEL GRUPO 
+                CORPORATIVO SCARE para que sean tratados con la finalidad de realizar marketing, gestión administrativa, 
+                gestión de estadísticas internas, fidelización de clientes, prospección comercial, publicidad propia, 
+                segmentación de mercados, gestión de cobros y pagos, y transmisión y/o transferencia de datos. De igual modo, 
+                en calidad de representante legal del(los) menor(es) y/o con el consentimiento de los beneficiarios registrados
+                en el presente formulario, autorizo que sus datos personales sean incorporados en una base de datos 
+                responsabilidad de COOPERATIVA DE TRABAJADORES DEL GRUPO CORPORATIVO SCARE con la finalidad de realizar 
+                gestión de estadísticas internas, procedimientos administrativos, remisión de información relacionada con 
+                el objeto social de la organización a los titulares, formación, gestión administrativa, registro de imágenes 
+                y de acceder a los beneficios que se generen debido a mi calidad de asociado(a) de COOPERATIVA DE TRABAJADORES 
+                DEL GRUPO CORPORATIVO SCARE . Es de carácter facultativo suministrar información que verse sobre datos sensibles, 
+                entendidos como aquellos que afectan la intimidad o sobre menores de edad. De la misma manera, declaro haber sido 
+                informado de que puedo ejercitar mis derechos de acceso, corrección, supresión, revocación o reclamo por infracción
+                de mis datos con un escrito dirigido a COOPERATIVA DE TRABAJADORES DEL GRUPO CORPORATIVO SCARE a través de la
+                dirección de correo electrónico gerente@corporativos.org.co indicando en el asunto el derecho que deseo ejercer,
+                o mediante correo ordinario remitido a la Carrera 15ª No. 120 – 74 en Bogotá.
+            </small></p>
         </section>
-
-            <button class="w-100 btn btn-success btn-lg" type="submit" style="margin-bottom: 3.5rem;">Continue to checkout</button>
-      </div>
+        <button class="w-100 btn btn-success btn-lg" type="submit" style="margin-bottom: 3.5rem;">Continue to checkout</button>
+    </form>
 </div>
-    </main>
-  </div>
-  <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

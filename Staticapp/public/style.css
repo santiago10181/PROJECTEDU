@@ -166,3 +166,6 @@ a.fc-event{
   #infoGe-profes div.row{
     margin-top: 1rem;
  }
+ section p{
+    text-align: justify;
+ }
