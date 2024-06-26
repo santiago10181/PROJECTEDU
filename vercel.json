@@ -1,4 +1,3 @@
-
 {
     "version": 2,
     "builds": [
@@ -14,5 +13,17 @@
     "routes": [
       { "src": "/(.*)", "dest": "/index.js" },
       { "src": "/aulaVirtual/dist/(.*)", "dest": "/aulaVirtual/dist/$1" }
+    ],
+    "headers": [
+      {
+        "source": "/aulaVirtual/dist/(.*).css",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
     ]
   }
+  
