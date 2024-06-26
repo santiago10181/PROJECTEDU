@@ -1,15 +1,5 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "aulaVirtual/dist/**/*",
-        "use": "@vercel/static"
-      }
-    ],
     "rewrites": [
       { "source": "/aulaVirtual/dist/(.*)", "destination": "/aulaVirtual/dist/$1" },
       { "source": "/(.*)", "destination": "/index.js" }
