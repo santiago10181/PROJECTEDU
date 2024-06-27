@@ -5,6 +5,8 @@ import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
+import fs from 'fs'
+import base64js from 'base64-js';
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -98,12 +100,9 @@ app.get("/hdv",(req,res)=>{
   res.render("profHDV")
 
 })
-app.post("/hdv",(req,res)=>{
+app.post("/hdv",async(req,res)=>{
 
-  let info = req.body
-  console.log(info);
   res.send('OK')
-
 })
 //////LOGIN/////
 app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
