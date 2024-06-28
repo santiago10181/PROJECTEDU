@@ -4,7 +4,7 @@ import Home from './components/home.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root2')).render(
-
+<React.Fragment>
     <Home />
-
+</React.Fragment>
 )
