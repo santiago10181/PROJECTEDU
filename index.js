@@ -106,9 +106,14 @@ app.post("/hdv",async(req,res)=>{
 //////LOGIN/////
 
 app.get('/login',(req,res)=>{
-  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'login.html'));
+  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/login.html'));
 })
 
+//////LOGIN/////
+
+app.get('/home',(req,res)=>{
+  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/home.html'));
+})
 // Puerto a activar 
 
 app.listen(port, () => {
