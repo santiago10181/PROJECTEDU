@@ -5,6 +5,7 @@ import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
+
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.set("views", __dirname + "/Staticapp/views");
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/Staticapp/public"));
-
+app.use(express.static(path.join(__dirname, '/aulaVirtual-v2/dist')));
 
 //Pagina de inicio, creamos las fechas y la info a ingresar en el calendar//
 
@@ -98,20 +99,21 @@ app.get("/hdv",(req,res)=>{
   res.render("profHDV")
 
 })
-app.post("/hdv",(req,res)=>{
+app.post("/hdv",async(req,res)=>{
 
-  let info = req.body
-  console.log(info);
   res.send('OK')
-
 })
 //////LOGIN/////
-app.use(express.static(path.join(__dirname, '/aulaVirtual/dist')));
 
 app.get('/login',(req,res)=>{
-  res.sendFile(path.join(__dirname, '/aulaVirtual/dist', 'login.html'));
+  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/login.html'));
 })
 
+//////LOGIN/////
+
+app.get('/home',(req,res)=>{
+  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/home.html'));
+})
 // Puerto a activar 
 
 app.listen(port, () => {
