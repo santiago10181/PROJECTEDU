@@ -5,8 +5,8 @@ import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
-// import dotenv from 'dotenv';
-// dotenv.config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 // inicializacion de express
 const port = process.env.PORT || 3000;
