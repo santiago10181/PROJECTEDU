@@ -1,4 +1,6 @@
  
+  import backgroundDash from '/images/bg-login.jpg'
+  
   const ListItems = (props)=>{
     return(
         <li className="nav-item">
@@ -31,29 +33,37 @@
   
   function Home() {
     return (
-      <>
-      <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-success " style={{width: "250px"}}>
-          <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <img src="/images/eysaLogo.jpg" alt="EYSA Logo" width="60" height="60" className="me-2 rounded-circle"/>
-          <span className="fs-4">EYSA</span>
-        </a>
-        <hr />
+    <div className="container-fluid">
+        <div className="row">
+            <div className="col-auto d-flex flex-column flex-shrink-0 p-3 text-bg-success " style={{width: "250px"}}>
+                <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <img src="/images/eysaLogo.jpg" alt="EYSA Logo" width="60" height="60" className="me-2 rounded-circle"/>
+                <span className="fs-4">EYSA</span>
+                </a>
+                <hr />
 
-        <ul className="nav nav-pills flex-column mb-auto">
-            <ListItems  item="Home"  active='active'/>
-            <ListItems  item="Dashboard" />
-            <ListItems  item="Orders"  />
-            <ListItems  item="Products"  />
-            <ListItems  item="Customers"  />
-        </ul>
-        <hr />
-        
-        <div className="dropdown">
-          <UserItems    />
+                <ul className="nav nav-pills flex-column mb-auto">
+                    <ListItems  item="Home"  active='active'/>
+                    <ListItems  item="Dashboard" />
+                    <ListItems  item="Orders"  />
+                    <ListItems  item="Products"  />
+                    <ListItems  item="Customers"  />
+                </ul>
+                <hr />
+                
+                <div className="dropdown">
+                <UserItems    />
+                </div>
+            </div>
+            <main className="col justify-content-center align-items-center" style={{ backgroundImage: `url(${backgroundDash})`}}>
+                {/* Contenido del Dashboard */}
+                <h1>Dashboard</h1>
+                <p >Bienvenido al panel de control.</p>
+                {/* Añade aquí el contenido adicional del Dashboard */}
+                <img  src='/images/eysaLogo.jpg'  />
+            </main>
         </div>
     </div>
-          
-      </>
     )
   }
   
