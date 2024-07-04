@@ -8,7 +8,7 @@
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4 rounded-circle" src="images/eysaLogo.jpg" alt="" width="80" height="75"   >
       <h2>FORMATO PRE-MATRICULA</h2>
-      <p class="lead">Diligenciar el formulario para formalizar la matricula. Pronto nos comunicaremos con ustedes</p>
+      <p class="lead">Diligenciar el formulario para formalizar la matrícula. Pronto nos comunicaremos con ustedes.</p>
     </div>
 
     <!-- REGISTRO PARA LOS NOMBRES Y APELLIDOS -->
@@ -20,11 +20,11 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <label for="firstName" class="form-label">First name</label>
+                    <label for="firstName" class="form-label">Nombres</label>
                     <input type="text" class="form-control" id="firstName" name="fname" required>
                 </div>
                 <div class="col-6">
-                    <label for="lastName" class="form-label">Last name</label>
+                    <label for="lastName" class="form-label">Apellidos</label>
                     <input type="text" class="form-control" id="lastName" name="lname"  required>
                 </div>
                 </div>
@@ -36,22 +36,22 @@
                     <label for="firstName" class="form-label">Sexo</label>
                     <select class="form-select" aria-label="Default select example" name="sexo" required>
                         <option selected>Seleccione</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Femenino</option>
                     </select>
                 </div>
                 <div class="col-4">
                     <label for="firstName" class="form-label">Tipo de documento</label>
                     <select class="form-select" aria-label="Default select example" name="tipo_id" required>
                         <option selected>Seleccione</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">Cedúla</option>
+                        <option value="2">Cedúla de Extranjería</option>
+                        <option value="3">Tarjeta de identidad</option>
+                        <option value="3">Registro de nacimiento</option>
                     </select>
                 </div>
                 <div class="col-4">
-                    <label for="firstName" class="form-label">Numero de Identidicación </label>
+                    <label for="firstName" class="form-label">Número de Identidicación </label>
                     <input type="number" class="form-control" placeholder="Numero" aria-label="Last name" name="num_id" required>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     <input type="date" class="form-control" placeholder="Numero" aria-label="Last name"  name="fech_nacimiento" required>
                 </div>
                 <div class="col-4">
-                    <label for="firstName" class="form-label">Telefono </label>
+                    <label for="firstName" class="form-label">Teléfono </label>
                     <input type="number" class="form-control" placeholder="Numero" aria-label="Last name"  name="tel" required>
                 </div>
             </div>
@@ -78,11 +78,21 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="firstName" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="firstName" placeholder="" value="" required="">
+                        <input type="email" class="form-control" id="firstName" name="email" required>
                     </div>
                     <div class="col-sm-6">
                         <label for="lastName" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <input type="text" class="form-control" id="lastName"  name="Dirección" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Ciudad/Municipio</label>
+                        <input type="email" class="form-control" id="firstName"  name="ciudad" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Departamento</label>
+                        <input type="text" class="form-control" id="lastName"  name="depto" required>
                     </div>
                 </div>
         </section>
@@ -94,15 +104,17 @@
                 <label for="firstName" class="form-label">Programa al cual quiere inscribirse </label>
                 <select class="form-select" aria-label="Default select example"  name="programa_insc" required>
                     <option selected>Seleccione</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">Pre-Bachillerato</option>
+                    <option value="2">Pre-Saber11</option>
+                    <option value="3">Pre-Universotario</option>
+                    <option value="2">Pre-SaberPro</option>
+                    <option value="2">Refuerzos escolares</option>
                 </select>
             </div>
         </section>
 
                 <!-- REGISTRO DE ULTIMOS ESTUDIOS -->
-
+        <!-- obligatoirio bachillerato, saber11 y saber-pro -->
         <section id="recent-est" class="mt-5">
             <div class="text-success">
                 <h4>Institución de Procedencia </h4>
@@ -140,12 +152,12 @@
                 </div>
         
                 <div class="col-sm-6">
-                    <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
+                    <label for="lastName" class="form-label">Nº Identificación</label>
                     <input type="number" class="form-control" id="lastName" placeholder="" name="lname_madre" required="">
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="lastName" class="form-label">TELEFONO/ CELULAR </label>
+                    <label for="lastName" class="form-label">Teléfono/ Celular </label>
                     <input type="number" class="form-control" id="lastName" placeholder="" name="tel_madre" required="">
                     </div>
                 <div class="col-sm-6">
@@ -165,12 +177,12 @@
                 </div>
         
                 <div class="col-sm-6">
-                    <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
+                    <label for="lastName" class="form-label">Nº Identificación</label>
                     <input type="number" class="form-control" id="lastName" placeholder="" name="lname_padre" required="">
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="lastName" class="form-label">TELEFONO/ CELULAR </label>
+                    <label for="lastName" class="form-label">Teléfono/ Celular </label>
                     <input type="number" class="form-control" id="lastName" placeholder="" name="tel_padre" required="">
                     </div>
                 <div class="col-sm-6">
@@ -190,12 +202,12 @@
                 </div>
         
                 <div class="col-sm-6">
-                    <label for="lastName" class="form-label">Nº IDENTIFICACION</label>
+                    <label for="lastName" class="form-label">Nº Identificación</label>
                     <input type="number" class="form-control" id="lastName" placeholder="" name="lname_acudiente" required="">
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="lastName" class="form-label">TELEFONO/ CELULAR </label>
+                    <label for="lastName" class="form-label">Teléfono/ Celular </label>
                     <input type="number" class="form-control" id="lastName" placeholder="" name="tel_acudiente" required="">
                     </div>
                 <div class="col-sm-6">
@@ -220,24 +232,22 @@
             <p style="text-align: justify;"><small>
                 En cumplimiento con la Ley Estatutaria 1581 de 2012 de protección de datos y sus normas concordantes,
                 autorizo expresamente que los datos personales y biométricos (huella dactilar) consignados en el presente 
-                formulario sean incorporados en una base de datos responsabilidad de COOPERATIVA DE TRABAJADORES DEL GRUPO 
-                CORPORATIVO SCARE para que sean tratados con la finalidad de realizar marketing, gestión administrativa, 
+                formulario sean incorporados en una base de datos responsabilidad de Estrategías y Soluciones Académicas (EYSA) para que sean tratados con la finalidad de realizar marketing, gestión administrativa, 
                 gestión de estadísticas internas, fidelización de clientes, prospección comercial, publicidad propia, 
                 segmentación de mercados, gestión de cobros y pagos, y transmisión y/o transferencia de datos. De igual modo, 
                 en calidad de representante legal del(los) menor(es) y/o con el consentimiento de los beneficiarios registrados
                 en el presente formulario, autorizo que sus datos personales sean incorporados en una base de datos 
-                responsabilidad de COOPERATIVA DE TRABAJADORES DEL GRUPO CORPORATIVO SCARE con la finalidad de realizar 
+                responsabilidad de Estrategías y Soluciones Académicas (EYSA) con la finalidad de realizar 
                 gestión de estadísticas internas, procedimientos administrativos, remisión de información relacionada con 
                 el objeto social de la organización a los titulares, formación, gestión administrativa, registro de imágenes 
-                y de acceder a los beneficios que se generen debido a mi calidad de asociado(a) de COOPERATIVA DE TRABAJADORES 
-                DEL GRUPO CORPORATIVO SCARE . Es de carácter facultativo suministrar información que verse sobre datos sensibles, 
+                y de acceder a los beneficios que se generen debido a mi calidad de asociado(a) de Estrategías y Soluciones Académicas (EYSA) . Es de carácter facultativo suministrar información que verse sobre datos sensibles, 
                 entendidos como aquellos que afectan la intimidad o sobre menores de edad. De la misma manera, declaro haber sido 
                 informado de que puedo ejercitar mis derechos de acceso, corrección, supresión, revocación o reclamo por infracción
-                de mis datos con un escrito dirigido a COOPERATIVA DE TRABAJADORES DEL GRUPO CORPORATIVO SCARE a través de la
-                dirección de correo electrónico gerente@corporativos.org.co indicando en el asunto el derecho que deseo ejercer,
-                o mediante correo ordinario remitido a la Carrera 15ª No. 120 – 74 en Bogotá.
+                de mis datos con un escrito dirigido a Estrategías y Soluciones Académicas (EYSA) a través de la
+                dirección de correo electrónico admisiones.eysa@gmail.com indicando en el asunto el derecho que deseo ejercer,
+                o mediante correo ordinario remitido a la Carrera 3ª No. 02 – 66 en Gámeza, Boyacá.
             </small></p>
         </section>
-        <button class="w-100 btn btn-success btn-lg mt-3 mb-5" type="submit" >Continue to checkout</button>
+        <button class="w-100 btn btn-success btn-lg mt-3 mb-5" type="submit" >Enviar</button>
     </form>
 </div>
