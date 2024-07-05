@@ -93,6 +93,10 @@ app.post("/matricula",(req,res)=>{
 
 })
 
+app.get("/vinculate",(req,res)=>{
+  res.render('vinculate')
+})
+
 ///////REGISTER PROFE HDV////////////////////
 app.get("/hdv",(req,res)=>{
   
@@ -100,15 +104,24 @@ app.get("/hdv",(req,res)=>{
 
 })
 app.post("/hdv",async(req,res)=>{
-
+  console.log(req.body);
   res.send('OK')
+  // respuestA SOLICITUD RECIBIDA
 })
 //////LOGIN/////
 
 app.get('/login',(req,res)=>{
-  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'login.html'));
+  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/login.html'));
+  const user = 'NICIAL,APELLIDO_COMPLETO,INICIAL_SEGUNDO_APE @ EYSAEDU.COM'
+  const clave = 'Numero de identidad'
+
 })
 
+//////LOGIN/////
+
+app.get('/home',(req,res)=>{
+  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/home.html'));
+})
 // Puerto a activar 
 
 app.listen(port, () => {
