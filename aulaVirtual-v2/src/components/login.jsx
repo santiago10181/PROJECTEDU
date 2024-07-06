@@ -1,5 +1,5 @@
 
-
+import React from "react"
 
 
 const Email = ()=>{
@@ -7,7 +7,7 @@ const Email = ()=>{
   return(
     <>
       <div className="form-floating">
-            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"  />
+            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" />
             <label for="floatingInput">Email address</label>
       </div>
     </>
@@ -19,7 +19,7 @@ const Password = ()=>{
   return(
     <>
       <div className="form-floating">
-            <input type="password" className="form-control" id="floatingPassword" placeholder="Password"  />
+            <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password"/>
             <label for="floatingPassword">Password</label>
       </div>
     </>
@@ -29,15 +29,10 @@ const Password = ()=>{
 
 function App() {
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      // Aquí podrías agregar la lógica de autenticación
-      window.location.href = '/home'; // Redirigir a /home después de iniciar sesión
-    };
   return (
     <>
 		<main className="form-signin w-100 m-auto">
-			<form onSubmit={handleSubmit}>
+			<form method="POST" action="/login">
 				<img className="mb-4" src="/images/eysaLogo.jpg" alt="" width="85" height="80" />
 				<h1 className="h3 mb-3 fw-normal mt-5">Please sign in</h1>
 				<Email  />

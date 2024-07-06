@@ -5,7 +5,7 @@ import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
-
+import pg from 'pg'
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -21,7 +21,15 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/Staticapp/public"));
 app.use(express.static(path.join(__dirname, '/aulaVirtual-v2/dist')));
 
-//Pagina de inicio, creamos las fechas y la info a ingresar en el calendar//
+//conexion a base de datos//
+const db = new pg.Client({
+  user:'postgres',
+  host:'localhost',
+  database:'EYSA',
+  password:'olasanty',
+  port:5432
+})
+
 
 app.get('/',(req,res)=>{
     
@@ -105,7 +113,7 @@ app.get("/hdv",(req,res)=>{
 })
 app.post("/hdv",async(req,res)=>{
   console.log(req.body);
-  res.send('OK')
+  res.redirect('OK')
   // respuestA SOLICITUD RECIBIDA
 })
 //////LOGIN/////
@@ -115,6 +123,20 @@ app.get('/login',(req,res)=>{
   const user = 'NICIAL,APELLIDO_COMPLETO,INICIAL_SEGUNDO_APE @ EYSAEDU.COM'
   const clave = 'Numero de identidad'
 
+})
+app.post("/login",async(req,res)=>{
+  try {
+    db.connect()
+    const result = await db.query('SELECT * FROM users_admin')
+    
+    result.rows.forEach(ele => {
+      console.log(ele);
+    });
+    res.send('OK')
+  } catch (error) {
+    console.error(error);
+  }
+  // respuestA SOLICITUD RECIBIDA
 })
 
 //////LOGIN/////
