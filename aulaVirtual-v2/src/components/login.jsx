@@ -7,7 +7,7 @@ const Email = ()=>{
   return(
     <>
       <div className="form-floating">
-            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email" />
+            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" name="email_post" />
             <label for="floatingInput">Email address</label>
       </div>
     </>
@@ -19,7 +19,7 @@ const Password = ()=>{
   return(
     <>
       <div className="form-floating">
-            <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password"/>
+            <input type="password" className="form-control" id="floatingPassword" placeholder="Password" name="password_post"/>
             <label for="floatingPassword">Password</label>
       </div>
     </>

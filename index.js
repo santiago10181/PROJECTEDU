@@ -6,6 +6,7 @@ import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
 import pg from 'pg'
+const { Pool } = pg;
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -22,12 +23,12 @@ app.use(express.static(__dirname + "/Staticapp/public"));
 app.use(express.static(path.join(__dirname, '/aulaVirtual-v2/dist')));
 
 //conexion a base de datos//
-const db = new pg.Client({
-  user:'postgres',
-  host:'localhost',
-  database:'EYSA',
-  password:'olasanty',
-  port:5432
+const db = new Pool({
+    user:'postgres',
+    host:'localhost',
+    database:'EYSA',
+    password:'olasanty',
+    port:5432
 })
 
 
@@ -49,12 +50,7 @@ app.get("/contact",(req,res)=>{
 })
 app.post("/contact",async (req,res)=>{
     // cuerpo del contenido
-    let email = req.body.email
-    let text = req.body.text
-    let nombre = req.body.nombre
-    let numero = req.body.numero
-    let asunto = req.body.asunto
-    console.log(req.body);
+
     // 
     let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -126,24 +122,29 @@ app.get('/login',(req,res)=>{
 })
 app.post("/login",async(req,res)=>{
   try {
-    db.connect()
-    const result = await db.query('SELECT * FROM users_admin')
-    
-    result.rows.forEach(ele => {
-      console.log(ele);
-    });
-    res.send('OK')
+        const client = await db.connect()
+        const result = await client.query('SELECT * FROM users_admin')
+        const [{_,email,password_admin}] = result.rows
+        const {email_post,password_post} = req.body
+        
+        if (email_post == email && password_admin == password_post){
+          res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/home.html'));
+        }
+        else{
+            res.redirect('/login')
+        }
+        client.release();
   } catch (error) {
-    console.error(error);
+        console.error(error);
   }
   // respuestA SOLICITUD RECIBIDA
 })
 
 //////LOGIN/////
 
-app.get('/home',(req,res)=>{
-  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/home.html'));
-})
+
+  
+
 // Puerto a activar 
 
 app.listen(port, () => {
@@ -151,3 +152,5 @@ app.listen(port, () => {
 
     console.log('Express server initialized');
 });
+    // email: 'admin@eysaedu.com',
+    // password_admin: 'eysa.admin2024
