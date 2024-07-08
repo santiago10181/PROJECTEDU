@@ -102,15 +102,29 @@ app.get("/vinculate",(req,res)=>{
 })
 
 ///////REGISTER PROFE HDV////////////////////
-app.get("/hdv",(req,res)=>{
-  
+app.get("/hdv",async(req,res)=>{
   res.render("profHDV")
-
 })
+
 app.post("/hdv",async(req,res)=>{
-  console.log(req.body);
-  res.redirect('OK')
-  // respuestA SOLICITUD RECIBIDA
+  try {
+    const client = await db.connect()
+    const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto} = req.body
+    const query = `
+      INSERT INTO profesors (nombre, apellido, sexo, tipo_id, num_id, profesion,
+      area_dese, tel, email, direccion, ciudad, depto)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+    `;
+
+  const values = [fname, lname, sexo, tipo_id, num_id, profesion, area_dese, tel, email, direccion, ciudad, depto]; // Solo 11 valores
+
+  const result = await client.query(query, values);
+    res.send('OK')
+    client.release();
+
+  } catch (error) { 
+    console.error(error);
+  }
 })
 //////LOGIN/////
 
@@ -137,19 +151,11 @@ app.post("/login",async(req,res)=>{
   } catch (error) {
         console.error(error);
   }
-  // respuestA SOLICITUD RECIBIDA
 })
-
-//////LOGIN/////
-
-
-  
 
 // Puerto a activar 
 
 app.listen(port, () => {
-
-
     console.log('Express server initialized');
 });
     // email: 'admin@eysaedu.com',
