@@ -5,7 +5,7 @@
         <p class="lead">Diligenciar el formulario para formalizar tu perfíl. Pronto nos comunicaremos con ustedes.</p>
     </div>   
 
-    <form action="/hdv" method="post" name="formato_hdv_prof">
+    <form action="/hdv" method="post" name="formato_hdv_prof" enctype="multipart/form-data">
             <!-- REGISTRO PARA LOS NOMBRES Y APELLIDOS -->
         <section id="infoGe-profes" class="mt-1">
             
@@ -119,7 +119,7 @@
                         <input type="number" class="form-control" placeholder="Numero" aria-label="Last name" name="tiemp_lab_ult">
                     </div>
                     <div class="input-group col mt-4">
-                        <input type="file" class="form-control" id="inputGroupFile02" name="file_cert">
+                        <input type="file" class="form-control" id="inputGroupFile02"  name="file_cert">
                         <label class="input-group-text" for="inputGroupFile02">Upload</label>
                     </div>  
                     <div class="text-success">

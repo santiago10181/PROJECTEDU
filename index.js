@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
 import pg from 'pg'
 const { Pool } = pg;
+import multer from "multer";
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -16,7 +17,8 @@ const app = express();
 // avtivacion de middleware
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.set("views", __dirname + "/Staticapp/views");
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/Staticapp/public"));
@@ -31,7 +33,16 @@ const db = new Pool({
     port:5432
 })
 
-
+////////// funcion de multer/////////////////
+const storage = multer.diskStorage({
+  destination: function (req,file,cb) {
+    cb(null,'uploads')
+  },
+  filename : function (req,file,cb) {
+    cb(null, `${Date.now()} - ${file.originalname}`)
+  }
+})
+/////////////////////////////////////
 app.get('/',(req,res)=>{
     
     res.render('index')
@@ -106,17 +117,23 @@ app.get("/hdv",async(req,res)=>{
   res.render("profHDV")
 })
 
-app.post("/hdv",async(req,res)=>{
+const upload = multer({storage:storage})
+app.post("/hdv",upload.single('file_cert'),async(req,res)=>{
+  console.log(req.body);
   try {
     const client = await db.connect()
-    const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto} = req.body
+    const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto,anos_exp, perfil_prof,
+      inst_exp_ult,  cargo_ult, tiemp_lab_ult} = req.body
     const query = `
       INSERT INTO profesors (nombre, apellido, sexo, tipo_id, num_id, profesion,
-      area_dese, tel, email, direccion, ciudad, depto)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+      area_dese, tel, email, direccion, ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
     `;
 
-  const values = [fname, lname, sexo, tipo_id, num_id, profesion, area_dese, tel, email, direccion, ciudad, depto]; // Solo 11 valores
+  const values = [fname, lname, sexo, tipo_id, num_id, profesion, area_dese, tel, email, direccion,
+    ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult
+
+  ]; 
 
   const result = await client.query(query, values);
     res.send('OK')
@@ -135,6 +152,7 @@ app.get('/login',(req,res)=>{
 
 })
 app.post("/login",async(req,res)=>{
+
   try {
         const client = await db.connect()
         const result = await client.query('SELECT * FROM users_admin')
