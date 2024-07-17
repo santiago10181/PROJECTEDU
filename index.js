@@ -1,13 +1,22 @@
 import bodyParser from "body-parser";
 import { log } from "console";
-import path from "path";
+import path, { join } from "path";
 import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
+import pkg from 'pg';
+const { Pool } = pkg;
+import multer from "multer";
 // import dotenv from 'dotenv';
 // dotenv.config();
-
+const pool = new Pool({
+  user: 'postgres',
+  password: 'olasanty',
+  database: 'EYSA',
+  host: 'localhost',
+  port: 5432
+});
 // inicializacion de express
 const port = process.env.PORT || 3000;
 const app = express();
@@ -97,36 +106,41 @@ app.get("/hdv",async(req,res)=>{
   res.render("profHDV")
 })
 
+const multerHDV = multer({
+  dest: join(__dirname,'./Hojas_de_vida')
+}
+)
 
-app.post("/hdv",async(req,res)=>{
+app.post("/hdv",multerHDV.single('file'),async(req,res)=>{
 
   
-  console.log(req.body);
+  try {
+   
+    const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto,anos_exp, perfil_prof,
+      inst_exp_ult,  cargo_ult, tiemp_lab_ult} = req.body
+    const query = `
+      INSERT INTO profesors (nombre, apellido, sexo, tipo_id, num_id, profesion,
+      area_dese, tel, email, direccion, ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+    `;
 
-  // console.log(req.body);
-  // try {
-  //   const client = await db.connect()
-  //   const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto,anos_exp, perfil_prof,
-  //     inst_exp_ult,  cargo_ult, tiemp_lab_ult} = req.body
-  //   const query = `
-  //     INSERT INTO profesors (nombre, apellido, sexo, tipo_id, num_id, profesion,
-  //     area_dese, tel, email, direccion, ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult)
-  //     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
-  //   `;
+  const values = [fname, lname, sexo, tipo_id, num_id, profesion, area_dese, tel, email, direccion,
+    ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult
 
-  // const values = [fname, lname, sexo, tipo_id, num_id, profesion, area_dese, tel, email, direccion,
-  //   ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult
+  ]; 
 
-  // ]; 
-
-  // const result = await client.query(query, values);
-  //   res.send('OK')
-  //   client.release();
-
-  // } catch (error) { 
-  //   console.error(error);
-  // }
+  const result = await pool.query(query, values);
+    res.send('OK')
+    pool.end()
+  } catch (error) { 
+    console.error(error);
+  }
+  
 })
+app.get('/home',(req,res)=>{
+  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/home.html'));
+})
+app.post('hdv_file')
 //////LOGIN/////
 
 app.get('/login',(req,res)=>{
@@ -138,8 +152,8 @@ app.get('/login',(req,res)=>{
 app.post("/login",async(req,res)=>{
 
   try {
-        const client = await db.connect()
-        const result = await client.query('SELECT * FROM users_admin')
+
+        const result = await pool.query('SELECT * FROM users_admin')
         const [{_,email,password_admin}] = result.rows
         const {email_post,password_post} = req.body
         
@@ -149,7 +163,7 @@ app.post("/login",async(req,res)=>{
         else{
             res.redirect('/login')
         }
-        client.release();
+
   } catch (error) {
         console.error(error);
   }

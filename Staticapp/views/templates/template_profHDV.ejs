@@ -5,7 +5,7 @@
         <p class="lead">Diligenciar el formulario para formalizar tu perfíl. Pronto nos comunicaremos con ustedes.</p>
     </div>   
 
-    <form id="Form-print" action="/hdv" method="post" name="formato_hdv_prof" enctype="multipart/form-data">
+    <form id="Form-print" action="/hdv" method="post" name="formato_hdv_prof">
             <!-- REGISTRO PARA LOS NOMBRES Y APELLIDOS -->
         <section id="infoGe-profes" class="mt-1">
             
@@ -118,20 +118,27 @@
                         <label for="firstName" class="form-label">Tiempo laborado</label>
                         <input type="number" class="form-control" placeholder="Numero" aria-label="Last name" name="tiemp_lab_ult">
                     </div>
-                    <div class="input-group col mt-4">
-                        <input type="file" class="form-control" id="inputGroupFile02"  name="file_cert">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                    </div>  
                     <div class="text-success">
                         <hr>
                     </div>      
                 </div>
                 
             </div>
-            <div  class="mt-4">
+            <div  class="mt-1">
                 <button id="add-experience" type="button" class="btn btn-outline-success">Añadir experiencia</button>
             </div>
         </section>
+        <section id="boton-hdv">
+            <div class="text-success mt-5">
+                <h4>Adjuntar hoja de vida</h4>
+                <hr>
+            </div>
+            <div class="input-group col mt-2">
+                <input type="file" class="form-control" id="inputGroupFile02"  name="file_cert">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            </div>  
+        </section>
+        
         <section id="consent-data-prof" class="mt-5">
             <div class="text-success">
                 <h4>AUTORIZACIÓN POLITICA DE TRATAMIENTO DE DATOS PERSONALES</h4>
