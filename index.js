@@ -106,14 +106,16 @@ app.get("/hdv",async(req,res)=>{
   res.render("profHDV")
 })
 
-const multerHDV = multer({
-  dest: join(__dirname,'./Hojas_de_vida')
+const storage = multer.diskStorage({
+  destination : (req,file,cb)=> {cb(null,'hdv_upload')},
+  filename : (req,file,cb)=> {cb(null,file.originalname)}
 }
 )
+const upload = multer({storage:storage})
 
-app.post("/hdv",multerHDV.single('file'),async(req,res)=>{
-
-  
+app.post("/hdv",upload.single('file_cert'),async(req,res)=>{
+  console.log(req.body);
+  console.log(req.file);  
   try {
    
     const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto,anos_exp, perfil_prof,
@@ -131,16 +133,12 @@ app.post("/hdv",multerHDV.single('file'),async(req,res)=>{
 
   const result = await pool.query(query, values);
     res.send('OK')
-    pool.end()
   } catch (error) { 
     console.error(error);
   }
   
 })
-app.get('/home',(req,res)=>{
-  res.sendFile(path.join(__dirname, '/aulaVirtual-v2/dist', 'src/home.html'));
-})
-app.post('hdv_file')
+
 //////LOGIN/////
 
 app.get('/login',(req,res)=>{
