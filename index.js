@@ -5,9 +5,6 @@ import express from "express";
 import {dirname} from "path"
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer"
-import pg from 'pg'
-const { Pool } = pg;
-import multer from "multer";
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -24,24 +21,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/Staticapp/public"));
 app.use(express.static(path.join(__dirname, '/aulaVirtual-v2/dist')));
 
-//conexion a base de datos//
-const db = new Pool({
-    user:'postgres',
-    host:'localhost',
-    database:'EYSA',
-    password:'olasanty',
-    port:5432
-})
 
-////////// funcion de multer/////////////////
-const storage = multer.diskStorage({
-  destination: function (req,file,cb) {
-    cb(null,'uploads')
-  },
-  filename : function (req,file,cb) {
-    cb(null, `${Date.now()} - ${file.originalname}`)
-  }
-})
 /////////////////////////////////////
 app.get('/',(req,res)=>{
     
@@ -93,13 +73,13 @@ transporter.sendMail(message, function(error, info){
 });
 
 })
-
-///////REGISTER ALUMNO MATRICULA////////////////////
 app.get("/matricula",(req,res)=>{
   
   res.render("matricula")
 
 })
+///////REGISTER ALUMNO MATRICULA////////////////////
+
 app.post("/matricula",(req,res)=>{
 
   let info = req.body
@@ -117,31 +97,35 @@ app.get("/hdv",async(req,res)=>{
   res.render("profHDV")
 })
 
-const upload = multer({storage:storage})
-app.post("/hdv",upload.single('file_cert'),async(req,res)=>{
+
+app.post("/hdv",async(req,res)=>{
+
+  
   console.log(req.body);
-  try {
-    const client = await db.connect()
-    const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto,anos_exp, perfil_prof,
-      inst_exp_ult,  cargo_ult, tiemp_lab_ult} = req.body
-    const query = `
-      INSERT INTO profesors (nombre, apellido, sexo, tipo_id, num_id, profesion,
-      area_dese, tel, email, direccion, ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
-    `;
 
-  const values = [fname, lname, sexo, tipo_id, num_id, profesion, area_dese, tel, email, direccion,
-    ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult
+  // console.log(req.body);
+  // try {
+  //   const client = await db.connect()
+  //   const {fname,lname,sexo,tipo_id,num_id,profesion,area_dese,tel,email,direccion,ciudad,depto,anos_exp, perfil_prof,
+  //     inst_exp_ult,  cargo_ult, tiemp_lab_ult} = req.body
+  //   const query = `
+  //     INSERT INTO profesors (nombre, apellido, sexo, tipo_id, num_id, profesion,
+  //     area_dese, tel, email, direccion, ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult)
+  //     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+  //   `;
 
-  ]; 
+  // const values = [fname, lname, sexo, tipo_id, num_id, profesion, area_dese, tel, email, direccion,
+  //   ciudad, depto, anos_exp, perfil_prof, inst_exp_ult, cargo_ult, tiemp_lab_ult
 
-  const result = await client.query(query, values);
-    res.send('OK')
-    client.release();
+  // ]; 
 
-  } catch (error) { 
-    console.error(error);
-  }
+  // const result = await client.query(query, values);
+  //   res.send('OK')
+  //   client.release();
+
+  // } catch (error) { 
+  //   console.error(error);
+  // }
 })
 //////LOGIN/////
 
